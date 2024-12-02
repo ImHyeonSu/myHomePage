@@ -13,11 +13,8 @@ RUN npm install
 # code copy
 COPY . .
 
-# builc
-RUN npm run build
-
 # port 設定
 EXPOSE 3001
 
-# 実行
-CMD ["npm", "run", "serve"]
+# 開発モードで実行
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--port", "3001"]
