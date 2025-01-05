@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Vue_2
 
-**Last updated:** _2024-01-07_
+**Last updated:** _2025-01-05_
 
 ## v-model
 
@@ -27,9 +27,29 @@ export default {
 </script>
 ```
 
+## v-slot
+
+- これはコンポーネント間のコンテンツ受け渡しを可能にする重要な仕組みであり、特にコンポーネントの再利用性と柔軟性を高める上で重要な役割をする(コンポーネントの構造を柔軟に管理し、再利用可能なコンポーネントを容易に作成することができる)
+
+```html
+<!-- 親コンポーネント -->
+<child-component>
+  <template v-slot:desc>
+    ここに記述した内容が子コンポーネントのdescスロットに挿入されます。
+  </template>
+</child-component>
+
+<!-- 子コンポーネント -->
+<template>
+  <div>
+    <slot name="desc"></slot>
+  </div>
+</template>
+```
+
 ## bind
 
-- v ー bind の表現式は：を使用
+- v-bind の表現式は：を使用
 - ：即成名=""データを利用して当てる即成を設定できる
 
 ```html

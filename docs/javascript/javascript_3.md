@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # javascript_3
 
-**Last updated:** _2024-03-31_
+**Last updated:** _2025-01-05_
 
 ## array, object の . []の違い
 
@@ -53,3 +53,75 @@ console.log(squaredNumbers); // [1, 4, 9, 16, 25]
 - closer
   - 外部関数内で定義された内部関数で、外部関数の変数にアクセスできる関数。
   - そして外部関数の実行が終了した後も、外部関数の変数にアクセスできる。これがクロージャの中心的な概念。
+
+## Dom
+
+- Document Object Model の略字、html とか XML 文書のプラグラミング Interface
+- html コードを作成したら、webBrowser は html コードを読み取って dom を作成
+  - Javascript は domObject の要素に対してコードでの制御ができるようになる。
+
+```Javascript
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOMの例</title>
+</head>
+<body>
+    <div id="parent">
+        <h1>title</h1>
+        <p>説明</p>
+    </div>
+</body>
+</html>
+
+↓
+↓
+
+{
+    document: {
+        html: {
+            head: {
+                title: {
+                    textContent: "DOMの例"
+                }
+            },
+            body: {
+                div: {
+                    id: "parent",
+                    children: [
+                        {
+                            h1: {
+                                textContent: "title"
+                            }
+                        },
+                        {
+                            p: {
+                                textContent: "説明"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
+```
+
+```Javascript
+// 要素選択
+const parent = document.getElementById('parent');
+const heading = document.querySelector('h1');
+
+// 要素生成
+const newParagraph = document.createElement('p');
+newParagraph.textContent = '새로운 문단';
+
+// 要素追加
+parent.appendChild(newParagraph);
+
+// 要素修正
+heading.innerHTML = '새로운 제목';
+
+// 要素削除
+parent.removeChild(heading);
+```

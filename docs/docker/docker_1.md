@@ -4,15 +4,14 @@ sidebar_position: 1
 
 # docker_1
 
-**Last updated:** _2023-12-17_
+**Last updated:** _2025-01-06_
 
 ## container
 
 ソフトウェアアプリ、アプリの環境をパッケージ化する技術
 
 1. Isolation
-   - container は隔離されている状況で実行される、各 container は他の container とホストシステムなどとは
-   - 関わらず実行される → 個別の環境を持つ
+   - container は隔離されている状況で実行される、各 container は他の container とホストシステムなどとは関わらず実行される → 個別の環境を持つ
 2. Portability
    - container はどんな環境でも同じ動作ができる
 3. Lightweight
@@ -24,16 +23,53 @@ sidebar_position: 1
    - container は必要に応じて拡張できる、複数の container インスタンスを作って分散されている環境で
    - アプリ実行可能
 
+## compose
+
+- Docker Compose とは、複数の Docker コンテナを定義し、実行するためのツールです。YAML ファイルを使用して、アプリケーションの全体構成を管理することができる
+- 一つの YAML ファイルで、ウェブサーバー、データベース、キャッシュサーバーなど、複数のサービスを定義できる
+
+```yaml
+Copyversion: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+  database:
+    image: mysql:5.7
+```
+
+- このような設定ファイルを作成することで、docker-compose up という単一のコマンドで、全てのサービスを一括して起動することが可能
+- 利点
+  - 開発環境の一貫性が保たれます
+  - 複雑なアプリケーション構成を簡単に管理できます
+  - インフラ構成をコードとして管理できます
+
 ## command
 
 - docker-compose up
-- docker-compose up -d バックグラウンド実行
-- docker-compose up (service-name) - 特定 service だけ実行、docker-compose.yml に定義された service を実行すること
+  - docker-compose up -d バックグラウンド実行
+  - docker-compose up (service-name) - 特定 service だけ実行、docker-compose.yml に定義された service を実行すること
 - docker-compose down
 - docker-compose rm
 - docker-compose exec
+
+  - docker-compose exec php-fpm php artisan make:controller StaffCardController
+
+  - docker-compose exec php-fpm php artisan make:controller Admin/Coupns/CouponController
+
+  - docker-compose exec php-fpm php artisan make:controller Admin/Staffs/StaffController
+
+  - docker-compose exec php-fpm-api php artisan create_select_histories --path=database/migrations/2024
+
 - docker-compose exec (service-name) (command)
+
+  - docker exec -it コンテナ ID /bin/bash
+
 - docker logs --details
+
+  - docker logs --details コンテナ ID -f
+
 - docker logs --tail(最後 10 行だけ)
 - docker logs(全てのログ)
 - docker ps -a(docker の立ち上げ状況などまで含めて確認できる)
