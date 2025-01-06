@@ -82,3 +82,62 @@ ui > li { list-style: none; }
 特定な状態や条件によって選択される
 a:hover { text-decoration: underline }
 ```
+
+## CSS
+
+1. Display プロパティ
+
+- 基本的な表示方法
+
+  - none: 要素を非表示
+  - block: 要素を横幅いっぱいに表示（div, p, h, li 等）
+  - inline: 行内要素として表示（span, b, i, a 等）
+  - inline-block: block と inline の特徴を組み合わせた表示
+  - Flexbox: Flexbox は要素の配置を柔軟に制御できる表示方式
+    - flex-direction: 要素の配置方向を指定
+    - flex-wrap: 要素の折り返し制御
+    - justify-content: メイン軸方向の配置制御
+    - align-items: 交差軸方向の配置制御
+
+```css
+.container {
+  display: flex;
+}
+```
+
+2. その他の重要なプロパティ
+
+- border（境界線）
+
+```css
+.element {
+  border: width style color;
+}
+```
+
+- overflow（はみ出し制御）
+
+  - visible: はみ出しをそのまま表示
+  - hidden: はみ出しを非表示
+  - scroll: スクロールバーを表示
+  - auto: 必要な場合のみスクロールバーを表示
+
+- transition（遷移効果）
+  - 要素の状態変化をスムーズに表現するために使用
+
+```css
+.element {
+  transition: property duration timing-function delay;
+}
+```
+
+3. セレクタと構造
+
+- 直接の子要素を選択する場合
+- これらのプロパティを組み合わせることで、モダンでレスポンシブなレイアウトを実現することができる。
+
+```css
+  div > p {
+  /_ スタイル定義 _/
+  }
+```
