@@ -104,9 +104,27 @@ const config = {
           },
           {
             type: "docSidebar",
+            sidebarId: "MySQLSidebar",
+            position: "left",
+            label: "MySQL",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "phpSidebar",
+            position: "left",
+            label: "php",
+          },
+          {
+            type: "docSidebar",
             sidebarId: "goSidebar",
             position: "left",
             label: "go",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "pythonSidebar",
+            position: "left",
+            label: "python",
           },
           {
             type: "docSidebar",
@@ -122,33 +140,21 @@ const config = {
           },
           {
             type: "docSidebar",
-            sidebarId: "MySQLSidebar",
-            position: "left",
-            label: "MySQL",
-          },
-          {
-            type: "docSidebar",
-            sidebarId: "pythonSidebar",
-            position: "left",
-            label: "python",
-          },
-          {
-            type: "docSidebar",
             sidebarId: "reactSidebar",
             position: "left",
             label: "react",
           },
           {
             type: "docSidebar",
-            sidebarId: "swiftSidebar",
-            position: "left",
-            label: "swift",
-          },
-          {
-            type: "docSidebar",
             sidebarId: "VueSidebar",
             position: "left",
             label: "vue",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "swiftSidebar",
+            position: "left",
+            label: "swift",
           },
           {
             type: "docSidebar",
