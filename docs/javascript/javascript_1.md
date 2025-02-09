@@ -48,3 +48,44 @@ const parsedObject = JSON.parse(jsonString);
 const jsObject = { name: "John", age: 30 };
 const jsonString = JSON.stringfy(jsObject);
 ```
+
+## enum
+- 値の不変性（Immutability）
+```javascript
+// Objectは値が変更可能です
+const UserType = {
+    ADMIN: 'ADMIN',
+    USER: 'USER'
+};
+UserType.ADMIN = 'CHANGED';  // 変更可能
+UserType.NEW = 'NEW';       // 新しい値の追加も可能
+
+// Enumとして使用する場合は値を変更できません
+const UserTypeEnum = Object.freeze({
+    ADMIN: 'ADMIN',
+    USER: 'USER'
+});
+UserTypeEnum.ADMIN = 'CHANGED';  // エラー
+UserTypeEnum.NEW = 'NEW';       // エラー
+```
+- 値の有効性検証
+```javascript
+// Objectの場合、どのような値でも使用できてしまいます
+const Status = {
+    ACTIVE: 'ACTIVE',
+    INACTIVE: 'INACTIVE'
+};
+let status = 'ANYTHING';  // 問題なく動作してしまう
+
+// Enumの場合、定義された値のみを使用するよう制限できます
+const StatusEnum = Object.freeze({
+    ACTIVE: 'ACTIVE',
+    INACTIVE: 'INACTIVE',
+    isValid(status) {
+        return Object.values(this).includes(status);
+    }
+});
+if (!StatusEnum.isValid('ANYTHING')) {
+    throw new Error('無効なステータス値です');
+}
+```
