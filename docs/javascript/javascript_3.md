@@ -54,6 +54,37 @@ console.log(squaredNumbers); // [1, 4, 9, 16, 25]
   - 外部関数内で定義された内部関数で、外部関数の変数にアクセスできる関数。
   - そして外部関数の実行が終了した後も、外部関数の変数にアクセスできる。これがクロージャの中心的な概念。
 
+## for of, in
+- of 
+```javascript
+// Array
+const fruits = ["apple", "banana", "orange"];
+for (const fruit of fruits) {
+    console.log(fruit);  // apple, banana, orange
+}
+
+// String
+const str = "Hello";
+for (const char of str) {
+    console.log(char);  // H, e, l, l, o 
+}
+```
+- in
+```javascript
+// object
+const person = { name: "林", age: 25 };
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+
+// 配列のin使用
+const arr = ["a", "b", "c"];
+for (const index in arr) {
+    console.log(index);  // "0", "1", "2" (文字列でreturnされる)
+}
+```
+
+
 ## Dom
 
 - Document Object Model の略字、html とか XML 文書のプラグラミング Interface
@@ -114,13 +145,13 @@ const heading = document.querySelector('h1');
 
 // 要素生成
 const newParagraph = document.createElement('p');
-newParagraph.textContent = '새로운 문단';
+newParagraph.textContent = '新しい要素';
 
 // 要素追加
 parent.appendChild(newParagraph);
 
 // 要素修正
-heading.innerHTML = '새로운 제목';
+heading.innerHTML = '新しいタイトル';
 
 // 要素削除
 parent.removeChild(heading);

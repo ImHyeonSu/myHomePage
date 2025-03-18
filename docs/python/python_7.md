@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # python_7
 
-**Last updated:** _2023-10-13_
+**Last updated:** _2024-12-13_
 
 ### HashMap
 
@@ -246,11 +246,11 @@ def process_lambda():
 print("\n時間:")
 start = time.time()
 process_regular()
-print(f"normal: {time.time() - start:.4f}초")
+print(f"normal: {time.time() - start:.4f}")
 
 start = time.time()
 process_lambda()
-print(f"lambda: {time.time() - start:.4f}초")
+print(f"lambda: {time.time() - start:.4f}")
 
 
 normal: 136 bytes
@@ -265,7 +265,7 @@ Line #    Mem usage    Increment  Line Contents
     11     15.7 MiB      0.0 MiB        def square(x): return x**2
     12     31.2 MiB     15.5 MiB        result = list(map(square, numbers))
     13     31.2 MiB      0.0 MiB        return result
-normal: 0.2341초
+normal: 0.2341
 
 Line #    Mem usage    Increment  Line Contents
 ================================================
@@ -274,7 +274,7 @@ Line #    Mem usage    Increment  Line Contents
     17     15.7 MiB      0.0 MiB        numbers = range(1000000)
     18     31.1 MiB     15.4 MiB        result = list(map(lambda x: x**2, numbers))
     19     31.1 MiB      0.0 MiB        return result
-lambda: 0.2156초
+lambda: 0.2156
 ```
 
 ->これを見ると時間とか容量がそこまで差はない、だけど簡単に一回だけ使いたい場合には lambda が効率的だと判断。

@@ -31,7 +31,7 @@ sidebar_position: 1
 
 ## go.mod
 
-- goModlue の設定ファイル
+- goModule の設定ファイル
 
 1. Module 設定
 
@@ -157,7 +157,7 @@ uniqueSet[1] = struct{}{}
 ポインタ（Pointer）
 
 var num int = 42
-var numPtr \*int = &num
+var numPtr *int = &num
 ```
 
 - 関数型（Function）

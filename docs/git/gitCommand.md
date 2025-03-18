@@ -7,7 +7,7 @@ sidebar_position: 1
 
 **Last updated:** _2024-03-10_
 
-・origin は remoterepository の別名
+・origin は remoteRepository の別名
 
 ・現在作業しているブランチを認識させる
 HEAD->[ブランチ名]
