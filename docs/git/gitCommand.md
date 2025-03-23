@@ -76,10 +76,18 @@ git tag -d タグ名 -> pushしてない場合
 
 ・stash
 ```
+#　通常
 git stash
 git stash list
 git stash save stash名
-git stash applay stash{0}
+git stash apply stash@{0}
+git stash save -u stash名
+git stash clear
+
+
+# 適用後、stashの削除まで
+git stash pop
+git stash pop stash stash@{0}
 ```
 
 ・tag
