@@ -75,7 +75,7 @@ const Status = {
     ACTIVE: 'ACTIVE',
     INACTIVE: 'INACTIVE'
 };
-let status = 'ANYTHING';  // 問題なく動作してしまう
+let Status = 'ANYTHING';  // 問題なく動作してしまう
 
 // Enumの場合、定義された値のみを使用するよう制限できます
 const StatusEnum = Object.freeze({
