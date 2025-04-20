@@ -104,9 +104,9 @@ const config = {
           },
           {
             type: "docSidebar",
-            sidebarId: "MySQLSidebar",
+            sidebarId: "DBSidebar",
             position: "left",
-            label: "MySQL",
+            label: "DB",
           },
           {
             type: "docSidebar",
