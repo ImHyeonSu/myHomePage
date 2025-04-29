@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # javascript_3
 
-**Last updated:** _2025-01-05_
+**Last updated:** _2025-04-27_
 
 ## array, object の . []の違い
 
@@ -19,6 +19,7 @@ console.log(obj.name); // 'John'
 - []の場合
   - object, array の要素を取得するとき使う
   - array の idx を指定するときも使う
+  - 動的な配列、最初に長さを決めなくても大丈夫だし、動的に伸ばせる
 
 ```javascript
 const obj = { "first-name": "John", age: 30 };
@@ -28,62 +29,39 @@ const arr = [1, 2, 3];
 console.log(arr[0]); // 1
 ```
 
-- arrow function
-  - 関数表現式のため、変数または他の関数の引数として渡される、だから一般的なメソッドを宣言することとは違う
-
-```javascript
-function add(a, b) {
-  return a + b;
-}
-const add = (a, b) => a + b;
-
-function square(x) {
-  return x * x;
-}
-
-const square = (x) => x * x;
-
-const numbers = [1, 2, 3, 4, 5];
-
-const squaredNumbers = numbers.map((x) => x * x);
-
-console.log(squaredNumbers); // [1, 4, 9, 16, 25]
-```
-
-- closer
-  - 外部関数内で定義された内部関数で、外部関数の変数にアクセスできる関数。
-  - そして外部関数の実行が終了した後も、外部関数の変数にアクセスできる。これがクロージャの中心的な概念。
-
 ## for of, in
-- of 
+
+- of
+
 ```javascript
 // Array
 const fruits = ["apple", "banana", "orange"];
 for (const fruit of fruits) {
-    console.log(fruit);  // apple, banana, orange
+  console.log(fruit); // apple, banana, orange
 }
 
 // String
 const str = "Hello";
 for (const char of str) {
-    console.log(char);  // H, e, l, l, o 
+  console.log(char); // H, e, l, l, o
 }
 ```
+
 - in
+
 ```javascript
 // object
 const person = { name: "林", age: 25 };
 for (const key in person) {
-    console.log(`${key}: ${person[key]}`);
+  console.log(`${key}: ${person[key]}`);
 }
 
 // 配列のin使用
 const arr = ["a", "b", "c"];
 for (const index in arr) {
-    console.log(index);  // "0", "1", "2" (文字列でreturnされる)
+  console.log(index); // "0", "1", "2" (文字列でreturnされる)
 }
 ```
-
 
 ## Dom
 
