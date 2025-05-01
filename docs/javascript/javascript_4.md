@@ -110,6 +110,10 @@ const expressedFunction = function () {
 };
 console.log(expressedFunction()); // 'Expressed Function'
 ```
+### Hoistingが可能な理由
+- JavasScriptでは、コードを実行する時、Compileと実行二つの段階がある
+- Compile段階でもうすでにvar、functionを宣言しておく
+- 実行段階で値を格納する
 
 ## EventLoop
 
