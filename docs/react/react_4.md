@@ -24,6 +24,17 @@ sidebar_position: 4
 
 4. イメージファイルの最適化
 
+## Hydration
+- serverからもらった静的なHTMLにJavascriptコードを入れる過程、HTMLページを動的なReactアプリケーションに変えるプロセス
+1. server rendering
+   -  serverからReactコンポーネントをHTMLにRenderingする
+2. HTML送信
+   - この静的HTMLをクライアントに送信
+3. JavaScriptロード
+   - ブラウザーがJavascriptBundleをダウンロードして実行する
+4. Hydration
+   - ReactがHTMLイベントリスナーを入れる
+
 ## routing の書き方
 
 1. app/page.js の作成

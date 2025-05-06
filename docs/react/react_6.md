@@ -6,6 +6,17 @@ sidebar_position: 6
 
 **Last updated:** _2025-04-29_
 
-## ReactのIndexをKeyにしない理由
-- 動的な配列のIndexをKeyにしたら、値が変わったりしててバグが起きる可能性が高い
+## React の Index を Key にしない理由
+
+- 動的な配列の Index を Key にしたら、値が変わったりしててバグが起きる可能性が高い
 - 静的な配列の場合は大丈夫
+
+## useEffect, useLayoutEffect
+
+- useEffect は Rendering 完了後、非同期的に実行される
+  - 画面が描画されたあと実行される
+  - 大体な場合、API を実行結果で画面に変化をさせたい場合などで使われている
+- useLayoutEffect は Rendering 後、DOM がアップデートされる前に同期的に実行される。
+  - 画面が描画される前実行が終わる
+  - レイアウト、DOM のサイズなどの変更に最適
+- 何でもかんでも useLayoutEffect にしてしまうと同期的に実行されるので、useEffect と useLayoutEffect を適切に組み合わせて使った方がいい
