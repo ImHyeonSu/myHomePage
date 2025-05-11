@@ -123,8 +123,10 @@ console.log(expressedFunction()); // 'Expressed Function'
     - 関数を呼び出したら、この CallStack にたまる、JavaScript は関数を必ず一個だけ処理する SingleThread 言語
   - TaskQueue・CallbackQueue
     - 非同期 CallBack 関数がたまるところ、setTimeout,AJAX, Event リスナーの Callback などがここにほぞんされる
+    - EventLoop等一個のタスクが実行される
   - Microtask Queue
     - Promise の Callback がここに保存される、TaskQueue・CallbackQueue より優先される
+    - TaskQueue・CallbackQueueが実行される前にMicrotask Queueを優先で確認して処理する
   - WebAPI
     - ブラウザーから提供する API で、DOM の操作、AJAX、setTimeout などの非同期処理を処理する
 
