@@ -232,6 +232,17 @@ Vue.prototype.$myMethod = function () {
 
 ## Webpack
 
+### 説明
+
+- ネットワーク性能最適化
+  - 多数の個別ファイルを 1 つまたは少数のファイルにまとめ、HTTP リクエスト数を削減してローディング速度を改善する
+- コード最適化および互換性向上
+  - Dead Code Elimination と Tree Shaking で不要なコードを除去
+  - 最新の JavaScript 構文を旧ブラウザ対応コードに変換
+  - Babel 等のトランスパイラと連携して ES6+機能を ES5 に変換
+
+### バンドル順次
+
 bundler
 
 1. すべてのソースファイルを分析

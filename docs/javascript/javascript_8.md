@@ -4,12 +4,15 @@ sidebar_position: 8
 
 # javascript_8
 
-**Last updated:** _2025-05-21
+**Last updated:** \_2025-05-21
 
-## typeとinterface
+## type と interface
+
 ### type
-- objectを拡張することに良い
-- 結果的に一つのinterfaceに結合される
+
+- object を拡張することに良い
+- 結果的に一つの interface に結合される
+
 ```javaScript
 interface Person {
   age: number;
@@ -28,9 +31,12 @@ const person1: Person = {
   address: "1010",
 };
 ```
+
 ### type
-- interfaceみたく重複で宣言ができない
-- typeは本当に形だけを持っている
+
+- interface みたく重複で宣言ができない
+- type は本当に形だけを持っている
+
 ```javaScript
 type BasicInfo = {
   name: string;
@@ -51,3 +57,19 @@ const person2: PersonInfo = {
   phone: "123-456-7890",
 };
 ```
+
+## null, undefined
+
+### undefined
+
+- JavaScript エンジンが自動的に割り当てる値
+- 値が割り当てられていない状態
+- メモリには実際に undefined という primitive 値が格納される
+  - 「この変数に何か割り当てるべきだがまだしていない」という意味
+
+### null
+
+- 開発者が意図的に割り当てる値
+- 意図的に空である」または「オブジェクト参照がない」ことを表す
+- モリには null という特別な値が格納される
+  - 「この変数はもうオブジェクトを参照しない」という明確なシグナル

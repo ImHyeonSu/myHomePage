@@ -7,15 +7,31 @@ sidebar_position: 6
 **Last updated:** _2025-04-28_
 
 ## event propagation
-- event propagationはDOMからイベントが発生した時、そのイベントがどのように流れるのかを説明する
-- 大きく、Capturing,Target,Bubblingがある
+
+- event propagation は DOM からイベントが発生した時、そのイベントがどのように流れるのかを説明する
+- 大きく、Capturing,Target,Bubbling がある
+
 1. Capturing
-- イベントが一番TOP要素(document)からスタートしてイベントが発生したTargetまで降りることをいう
-- 降りながらEventListenerが実行される
+
+- イベントが一番 TOP 要素(document)からスタートしてイベントが発生した Target まで降りることをいう
+- 降りながら EventListener が実行される
+
 2. Target
-- イベントが実際発生したTargetの要素に着く段階
+
+- イベントが実際発生した Target の要素に着く段階
+
 3. Bubbling
-- Targetの要素からイベント発生後、またDOMの上位要素にイベントが上がることを言う
+
+- Target の要素からイベント発生後、また DOM の上位要素にイベントが上がることを言う
+
+4. stopPropagation
+
+- メソッドを呼び出すと、現在の要素でイベントを止める機能
+
+5. preventDefault
+
+- リンクとページ遷移、FormSubmitなどを止める
+
 ```javascript
 キャプチャリング: 祖父要素
 キャプチャリング: 親要素
