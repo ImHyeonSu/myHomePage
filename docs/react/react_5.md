@@ -45,6 +45,37 @@ export default function APP(){
 }
 ```
 
+## UseRef
+
+- コンポーネント内で変更可能な値を保存・管理する React フック
+- DOM 要素へのアクセス
+
+```javascript
+const inputRef = useRef(null);
+
+useEffect(() => {
+  inputRef.current.focus(); // マウント時にinputにフォーカス
+}, []);
+
+return <input ref={inputRef} />;
+```
+
+- 再レンダリングを発生させない値の保持
+
+```javascript
+const timerRef = useRef(null);
+
+const startTimer = () => {
+  timerRef.current = setInterval(() => {
+    console.log("タイマー実行");
+  }, 1000);
+};
+
+const stopTimer = () => {
+  clearInterval(timerRef.current); // タイマー停止
+};
+```
+
 ## StrictMode
 
 - 開発中に発生しそうな問題を事前に検知、予防するため使用
@@ -60,8 +91,9 @@ export default function APP(){
    - 将来の React バージョンで削除される機能の通知
 
 ## ReactRendering
+
 - render phase
-   - Reactが変更されたState、propsによってUIがどう変更されるべきかを計算する過程
+  - React が変更された State、props によって UI がどう変更されるべきかを計算する過程
 - commit phase
-   - 実際に変更されたUIをDOMに反映する段階、その後Rendering
-   - RenderingごuseEffectなどのHookが実行される
+  - 実際に変更された UI を DOM に反映する段階、その後 Rendering
+  - Rendering ご useEffect などの Hook が実行される

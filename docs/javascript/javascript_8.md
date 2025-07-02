@@ -4,72 +4,63 @@ sidebar_position: 8
 
 # javascript_8
 
-**Last updated:** \_2025-05-21
+**Last updated:** \_2025-06-18
 
-## type と interface
+## TypeScript
 
-### type
+- javaScript にタイプ情報を明示的に書くようにする、拡張言語
+- コードの安全性が高まる：タイプを書くことによってランタイムの前にタイプエラーなど検知ができる
+- 構図化：interface, generic, enum などが追加されることによって構図化されてるコードを書くことができる
 
-- object を拡張することに良い
-- 結果的に一つの interface に結合される
+### class
 
-```javaScript
-interface Person {
-  age: number;
-  name: string;
-  isBirthday: boolean;
-}
-
-interface Person {
-  address: string;
-}
-
-const person1: Person = {
-  age: 1,
-  name: "abcd",
-  isBirthday: false,
-  address: "1010",
-};
-```
-
-### type
-
-- interface みたく重複で宣言ができない
-- type は本当に形だけを持っている
+- Public, Private, Protected
+- Protected の場合は、ただ暗黙的な約束、強制で Protected にすることは不可能
+  - Public は this.name = "John”;
+  - Private は this.#secret = "hidden”;
+  - Protected は this.\_secret = ‘hidden’;
+- TypeScript からは提供
 
 ```javaScript
-type BasicInfo = {
-  name: string;
-  age: number;
-};
+class Foo {
+    public a: string;    // 継承クラスアクセス O / 外部アクセス O
+    private b: number;   // 継承クラスアクセス X / 外部アクセス X
+    protected c: boolean; // 継承クラスアクセス O / 外部アクセス X
 
-type ContactInfo = {
-  email: string;
-  phone: string;
-};
-
-type PersonInfo = BasicInfo & ContactInfo;
-
-const person2: PersonInfo = {
-  name: "John",
-  age: 30,
-  email: "john@example.com",
-  phone: "123-456-7890",
-};
+  constructor(a: string, b: number, c: boolean) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+}
 ```
 
-## null, undefined
+## プロトタイプ
 
-### undefined
+- javaScript でオブジェクト間の継承を実装するメカニズム
+- すべてのオブジェクトは[[Prototype]]という隠しプロパティを持っている
+- プロトタイプチェーン: プロトタイプが連鎖的に連結された構造
+- 継承メカニズム: 上位プロトタイプのプロパティ・メソッドを下位オブジェクトが使用可能
+- 検索順序: 自分 → プロトタイプ → プロトタイプのプロトタイプ → ... → null
 
-- JavaScript エンジンが自動的に割り当てる値
-- 値が割り当てられていない状態
-- メモリには実際に undefined という primitive 値が格納される
-  - 「この変数に何か割り当てるべきだがまだしていない」という意味
+```javascript
+const dog = {
+  greet() {
+    console.log("Hello from dog!");
+  },
+};
 
-### null
+const maru = Object.create(dog); // maruのプロトタイプがdogに設定
+maru.greet(); // "Hello from dog!" 出力
 
-- 開発者が意図的に割り当てる値
-- 意図的に空である」または「オブジェクト参照がない」ことを表す
-- モリには null という特別な値が格納される
-  - 「この変数はもうオブジェクトを参照しない」という明確なシグナル
+
+
+
+function Dog() {}
+Dog.prototype.greet = function () {
+  console.log("Hello from Dog!");
+};
+
+const maru = new Dog(); // maruのプロトタイプがDog.prototypeに設定
+maru.greet(); // "Hello from Dog!" 出力
+```

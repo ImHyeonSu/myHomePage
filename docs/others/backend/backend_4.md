@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # back_end_4
 
-**Last updated:** _2024-06-12_
+**Last updated:** _2025-06-12_
 
 ## scaleUp, scaleOut
 
@@ -34,3 +34,5 @@ sidebar_position: 4
 - イベント駆動アーキテクチャを採用
 - 単一スレッドイベントループで非同期的に複数クライアントのリクエストを処理
 - マルチスレッドモデルでは実現困難な高い同時性を達成
+
+

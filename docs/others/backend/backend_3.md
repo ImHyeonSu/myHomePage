@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # back_end_3
 
-**Last updated:** _2024-06-06_
+**Last updated:** _2025-06-06_
 
 ## REST (Representational State Transfer)
 
@@ -29,6 +29,10 @@ POST /users           → 新しいuser生成
 PUT /users/123        → user 123 修正
 DELETE /users/123     → user 123 削除
 ```
+###　 Header
+- データのメタ情報が入ってある、データに大したコンテキスト情報を含んである、つまりデータをどう処理すればいいかを提供すること
+- Content-Type, Authorization, Cache-Controlなど
+- サイズは一般的に8KB-16KB
 
 ###　 URL Parameter (Path Parameter)
 

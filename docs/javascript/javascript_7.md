@@ -4,78 +4,72 @@ sidebar_position: 7
 
 # javascript_7
 
-**Last updated:** _2025-04-28_
+**Last updated:** \_2025-05-21
 
-## event propagation
-- event propagationはDOMからイベントが発生した時、そのイベントがどのように流れるのかを説明する
-- 大きく、Capturing,Target,Bubblingがある
-1. Capturing
-- イベントが一番TOP要素(document)からスタートしてイベントが発生したTargetまで降りることをいう
-- 降りながらEventListenerが実行される
-2. Target
-- イベントが実際発生したTargetの要素に着く段階
-3. Bubbling
-- Targetの要素からイベント発生後、またDOMの上位要素にイベントが上がることを言う
-```javascript
-キャプチャリング: 祖父要素
-キャプチャリング: 親要素
-キャプチャリング: 子要素
-バブリング: 子要素
-バブリング: 親要素
-バブリング: 祖父要素
-<!DOCTYPE html>
-<html>
-<head>
-  <title>イベント伝播の例</title>
-  <style>
-    div {
-      padding: 20px;
-      margin: 10px;
-      border: 1px solid black;
-    }
-    #grandparent { background-color: lightblue; }
-    #parent { background-color: lightgreen; }
-    #child { background-color: pink; }
-  </style>
-</head>
-<body>
-  <div id="grandparent">
-    祖父要素
-    <div id="parent">
-      親要素
-      <button id="child">子要素（ボタン）</button>
-    </div>
-  </div>
+## type と interface
 
-  <script>
-    // キャプチャリングフェーズ
-    document.getElementById('grandparent').addEventListener('click', function(e) {
-      console.log('キャプチャリング: 祖父要素');
-    }, true);
+### interface
 
-    document.getElementById('parent').addEventListener('click', function(e) {
-      console.log('キャプチャリング: 親要素');
-    }, true);
+- object を拡張することに良い
+- 結果的に一つの interface に結合される
 
-    document.getElementById('child').addEventListener('click', function(e) {
-      console.log('キャプチャリング: 子要素');
-    }, true);
+```javaScript
+interface Person {
+  age: number;
+  name: string;
+  isBirthday: boolean;
+}
 
-    // バブリングフェーズ
-    document.getElementById('child').addEventListener('click', function(e) {
-      console.log('バブリング: 子要素');
-      // イベント伝播を停止する例
-      // e.stopPropagation();
-    }, false);
+interface Person {
+  address: string;
+}
 
-    document.getElementById('parent').addEventListener('click', function(e) {
-      console.log('バブリング: 親要素');
-    }, false);
-
-    document.getElementById('grandparent').addEventListener('click', function(e) {
-      console.log('バブリング: 祖父要素');
-    }, false);
-  </script>
-</body>
-</html>
+const person1: Person = {
+  age: 1,
+  name: "abcd",
+  isBirthday: false,
+  address: "1010",
+};
 ```
+
+### type
+
+- interface みたく重複で宣言ができない
+- type は本当に形だけを持っている
+
+```javaScript
+type BasicInfo = {
+  name: string;
+  age: number;
+};
+
+type ContactInfo = {
+  email: string;
+  phone: string;
+};
+
+type PersonInfo = BasicInfo & ContactInfo;
+
+const person2: PersonInfo = {
+  name: "John",
+  age: 30,
+  email: "john@example.com",
+  phone: "123-456-7890",
+};
+```
+
+## null, undefined
+
+### undefined
+
+- JavaScript エンジンが自動的に割り当てる値
+- 値が割り当てられていない状態
+- メモリには実際に undefined という primitive 値が格納される
+  - 「この変数に何か割り当てるべきだがまだしていない」という意味
+
+### null
+
+- 開発者が意図的に割り当てる値
+- 意図的に空である」または「オブジェクト参照がない」ことを表す
+- モリには null という特別な値が格納される
+  - 「この変数はもうオブジェクトを参照しない」という明確なシグナル

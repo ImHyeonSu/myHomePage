@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # back_end_2
 
-**Last updated:** _2024-06-04_
+**Last updated:** _2025-06-04_
 
 ## DB Replication
 - 大規模のシステムなどでデータの安全性と可溶性のためにデータベースのコピーを設けてデータベスの動機化をすること

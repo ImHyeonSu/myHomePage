@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # back_end_1
 
-**Last updated:** _2024-05-26_
+**Last updated:** _2025-05-26_
 
 ## web server
 - 性的なコンテンツ(HTML, CSS, JS, イメージなど)を提供する
