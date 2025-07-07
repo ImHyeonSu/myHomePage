@@ -37,7 +37,8 @@ DELETE /users/123     → user 123 削除
 ###　 URL Parameter (Path Parameter)
 
 - URL のパースにパラメータを直接格納
-- GET、更新系
+- GETから主に使う
+- 更新系でも使う場合があるが、URLで見せてしまうのでセキュリティ的に適切ではない
 
 ```javascript
 GET / users / 123 / posts / 456;
@@ -48,7 +49,8 @@ GET / companies / google / employees / john;
 ### Query Parameter
 
 - URL の後ろに？をつけること
-- GET
+- GET、DELETE
+  - DELETEからQueryParameterを使用する理由はGETと同じパターンでデータを更新しに行くための一貫性を持たせるため
 
 ```javascript
 GET /users?page=1&limit=10&sort=name
