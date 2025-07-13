@@ -8,7 +8,12 @@ sidebar_position: 4
 
 ## next.js とは
 
-- react の ssr(サバーサイド)と ssg(定的サイド)を支援する webFrameWork の一つ
+- 開発環境の簡素化: バンドラー、ルーティングなど複雑な設定が不要
+- ファイルベースルーティング: ディレクトリ構造だけでページ生成
+- 多様なレンダリング対応: CSR、SSR、SSG 内蔵
+- 最適化機能: 画像最適化、コード分割、データキャッシングを標準提供
+- 生産性向上: React 開発の複雑さを解決
+- 高速開発と最適化されたパフォーマンスが欲しければ良いが、細かい制御や自由な構造が必要なら制約となる可能性がある。
 
 1. ssr 支援
 
@@ -25,15 +30,17 @@ sidebar_position: 4
 4. イメージファイルの最適化
 
 ## Hydration
-- serverからもらった静的なHTMLにJavascriptコードを入れる過程、HTMLページを動的なReactアプリケーションに変えるプロセス
+
+- server からもらった静的な HTML に Javascript コードを入れる過程、HTML ページを動的な React アプリケーションに変えるプロセス
+
 1. server rendering
-   -  serverからReactコンポーネントをHTMLにRenderingする
-2. HTML送信
-   - この静的HTMLをクライアントに送信
-3. JavaScriptロード
-   - ブラウザーがJavascriptBundleをダウンロードして実行する
+   - server から React コンポーネントを HTML に Rendering する
+2. HTML 送信
+   - この静的 HTML をクライアントに送信
+3. JavaScript ロード
+   - ブラウザーが JavascriptBundle をダウンロードして実行する
 4. Hydration
-   - ReactがHTMLイベントリスナーを入れる
+   - React が HTML イベントリスナーを入れる
 
 ## routing の書き方
 
