@@ -2,10 +2,11 @@
 sidebar_position: 1
 ---
 
-# gitCommand
-
+# git_1
 
 **Last updated:** _2024-03-10_
+
+## gitCommand
 
 ・origin は remoteRepository の別名
 
@@ -13,21 +14,25 @@ sidebar_position: 1
 HEAD->[ブランチ名]
 
 ・git remote の最新化
+
 ```
 git remote update
 ```
 
 ・remoteRepository からの変更事項をただ持ってくる、ロカルに変更事項が反映はされない状態
+
 ```
 git fetch
 ```
 
 ・remoteRepository からの変更事項を合併
+
 ```
 git pull
 ```
 
-・commitをリセットする
+・commit をリセットする
+
 ```
 git reset HEAD^
  -> 4個まえのコミットまで戻す
@@ -43,31 +48,37 @@ git push origin HEAD --force -> 強制push
 ```
 
 ・ブランチ作成
+
 ```
 git branch (branchname)
 ```
 
 ・ローカルのブランチを削除する場合
+
 ```
 git branch -d localBranchName
 ```
 
 ・リモートのブランチを削除する場合
+
 ```git
 git push origin --delete remoteBranchName
 ```
 
 ・コンフリクトが発生した場合
+
 ```
 git pull origin && git merge
 ```
 
 ・ブランチ移動
+
 ```
 git switch == git checkout
 ```
 
 ・タグ
+
 ```
 git tag タグ
 git push origin タグ名
@@ -75,6 +86,7 @@ git tag -d タグ名 -> pushしてない場合
 ```
 
 ・stash
+
 ```
 #　通常
 git stash
@@ -91,6 +103,7 @@ git stash pop stash stash@{0}
 ```
 
 ・tag
+
 ```
 git tag タグ
 git push origin タグ名
