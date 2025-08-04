@@ -29,16 +29,26 @@ POST /users           → 新しいuser生成
 PUT /users/123        → user 123 修正
 DELETE /users/123     → user 123 削除
 ```
+
 ###　 Header
+
 - データのメタ情報が入ってある、データに大したコンテキスト情報を含んである、つまりデータをどう処理すればいいかを提供すること
-- Content-Type, Authorization, Cache-Controlなど
-- サイズは一般的に8KB-16KB
+- Content-Type, Authorization, Cache-Control など
+- サイズは一般的に 8KB-16KB
+
+#### Content-Type
+
+- Content-Type ヘッダーは MIME タイプを基盤とし、type/subtype 形式
+  - JSON データ：application/json
+  - HTML 文書：text/html
+  - ファイルアップロード：multipart/form-data
+  - フォームデータ：application/x-www-form-urlencoded
 
 ###　 URL Parameter (Path Parameter)
 
 - URL のパースにパラメータを直接格納
-- GETから主に使う
-- 更新系でも使う場合があるが、URLで見せてしまうのでセキュリティ的に適切ではない
+- GET から主に使う
+- 更新系でも使う場合があるが、URL で見せてしまうのでセキュリティ的に適切ではない
 
 ```javascript
 GET / users / 123 / posts / 456;
@@ -50,7 +60,7 @@ GET / companies / google / employees / john;
 
 - URL の後ろに？をつけること
 - GET、DELETE
-  - DELETEからQueryParameterを使用する理由はGETと同じパターンでデータを更新しに行くための一貫性を持たせるため
+  - DELETE から QueryParameter を使用する理由は GET と同じパターンでデータを更新しに行くための一貫性を持たせるため
 
 ```javascript
 GET /users?page=1&limit=10&sort=name

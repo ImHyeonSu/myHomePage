@@ -93,7 +93,7 @@ a:hover { text-decoration: underline }
   - block: 要素を横幅いっぱいに表示（div, p, h, li 等）
   - inline: 行内要素として表示（span, b, i, a 等）
   - inline-block: block と inline の特徴を組み合わせた表示
-  - Flexbox: Flexbox は要素の配置を柔軟に制御できる表示方式
+  - flexBox: flexBox は要素の配置を柔軟に制御できる表示方式
     - flex-direction: 要素の配置方向を指定
     - flex-wrap: 要素の折り返し制御
     - justify-content: メイン軸方向の配置制御
