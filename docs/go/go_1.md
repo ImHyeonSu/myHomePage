@@ -43,6 +43,18 @@ sidebar_position: 1
 
 3. dependency と update などを選択するとき go.mod のファイルを利用して version 指定可能
 
+4. go mod tidyというコマンドで、実際に使われてるライブラリ、使われてないライブラリを自動で削除、インストールしてくれる。
+```go
+# プロジェクト内での実行
+go mod tidy
+
+# 特定のGoバージョンで実行
+go mod tidy -compat=1.17
+
+# 詳細情報を出す
+go mod tidy -v
+```
+
 ## go.sum
 
 - go.mod から設定されているファイルが間違ってないことを記録するファイル

@@ -51,6 +51,7 @@ const jsonString = JSON.stringfy(jsObject);
 
 ## enum
 - 値の不変性（Immutability）
+- 名前がある定数のObject
 ```javascript
 // Objectは値が変更可能です
 const UserType = {
