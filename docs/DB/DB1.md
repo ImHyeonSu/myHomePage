@@ -22,3 +22,13 @@ sidebar_position: 1
 
 - リレーショナル: 構造化データ、トランザクション重要、データ一貫性必須（例：サーバーアプリケーション）
 - 非リレーショナル: 低レイテンシ要求、スキーマ頻繁変更、大容量データ処理
+
+## DB Transaction
+
+### Optimistic Lock
+- データの衝突が少ないことを仮定して、データを読み込む時にLockを設定せず、データを修正する時に衝突があるかどうかを確認する。アプリケーションで直接ロールバックなどを処理する
+###　Pessimistic Lock
+- データの衝突が多いことを想定して、Transactionが始まる時にShared Lock, S-LockまたはExclusive Lock, X-Lockを設定して、他のTransactiongaデータに接近できないようにする方法
+- S-Lock: ほかのTransactionから読み込むのはできるけど編集はできない
+- X-Lock: ほかのTransactionから何もできない
+- ex. MYSQLはTransactionでX-LockでもSelectはできる
