@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # DB_1
 
-**Last updated:** _2025-06-13_
+**Last updated:** _2025-08-27_
 
 ## データベースタイプ別特徴まとめ:
 
