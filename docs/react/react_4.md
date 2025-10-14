@@ -62,7 +62,9 @@ sidebar_position: 4
 
 ## Next.js の Client side Rendering の考え方
 
-- CSR の書き方は以下のように useEffect を使う
+- ページ遷移時に全体をリロードせず、ブラウザ内で必要なコンポーネントのみを入れ替える技術
+  - CSR の書き方は以下のように useEffect を使う
+  - クリック → URL 変更（JavaScript で） → コンポーネント切り替え → 必要なデータのみ取得
 
 ```javascript
 import React, { useState, useEffect } from "react";

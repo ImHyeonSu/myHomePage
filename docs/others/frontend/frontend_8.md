@@ -25,3 +25,48 @@ sidebar_position: 8
   - 大規模プロジェクトでは多数の Story ファイル管理が負担
   - 特定ライブラリとの互換性問題の可能性
   - サーバー連携コンポーネントには Mock データ設定が必要
+
+## JSON Schema
+
+- JSON データがどんな形であるべきか、ルールを定めた文書
+- 定義を利用して、APIとの通信データの整合性をチェック
+```
+{
+  "username": "田中太郎",
+  "email": "tanaka@email.com",
+  "password": "1234567"
+}
+
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",      // usernameは文字列でなければならない
+      "minLength": 3         // 最小3文字以上
+    },
+    "email": {
+      "type": "string",      // emailは文字列
+      "format": "email"      // メール形式でなければならない
+    },
+    "password": {
+      "type": "string",      // passwordは文字列
+      "minLength": 6         // 最小6文字以上
+    }
+  },
+  "required": ["username", "email", "password"],  // 全て必須！
+  "additionalProperties": false  // 他のプロパティは許可しない
+}
+```
+
+```
+// バックエンドから来たデータ
+const userData = {
+  username: "田",  // ❌ 3文字未満！
+  email: "間違ったメール",  // ❌ メール形式じゃない！
+  // passwordなし！ ❌
+};
+
+// JSON Schemaで検証
+validateWithSchema(userData, userSchema);
+// 結果：「エラー！usernameは3文字以上、email形式が間違い、password必須」
+```

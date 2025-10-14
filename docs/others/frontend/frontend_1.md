@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # front_end_1
 
-**Last updated:** _2025-04-13_
+**Last updated:** _2025-10-15_
 
 ## reflow
 
@@ -18,6 +18,11 @@ sidebar_position: 1
 - 要素の形、スタイルなどが変わる時、発生、計算結果を画面に再描画する過程
   - background-color がかわる場合
   - v-show
+
+## Progressive Partial Rendering(PPR)
+
+- Webページの全体コンテンツをロードすることではなく、古典つを段階的にロードする方法を網羅していうこと、PPRの例としてSSR・CSRなどがある
+
 
 ## SSR(Server Side Rendering)
 
