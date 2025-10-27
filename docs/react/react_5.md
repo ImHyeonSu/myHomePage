@@ -92,8 +92,13 @@ const stopTimer = () => {
 
 ## ReactRendering
 
+- Trigger phase
+  - state/props の変更されるとき、React が更新キューに変更事項を登録
 - render phase
   - React が変更された State、props によって UI がどう変更されるべきかを計算する過程
+    - Virtual DOM 生成: 新しい Virtual DOM ツリー構築
+    - Diffing: 以前の Virtual DOM と比較
+    - 変更検知: どの部分が変わったか把握
 - commit phase
   - 実際に変更された UI を DOM に反映する段階、その後 Rendering
   - Rendering ご useEffect などの Hook が実行される

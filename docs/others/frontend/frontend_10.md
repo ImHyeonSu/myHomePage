@@ -59,3 +59,29 @@ for (const n of iter) {
   /* 空 - すでに消費済み */
 }
 ```
+
+## Generator
+
+- function\*で定義する特殊な関数
+- 実行を途中で停止し、後で再開可能
+- yield で値を一つずつ返す
+
+```javascript
+function* myGenerator() {
+  console.log("1回目の実行");
+  yield 1; // ここで一時停止
+
+  console.log("2回目の実行");
+  yield 2; // ここで一時停止
+
+  console.log("3回目の実行");
+  yield 3;
+}
+
+const gen = myGenerator(); // すぐ実行されず、イテレータを返す
+
+gen.next(); // '1回目の実行' → {value: 1, done: false}
+gen.next(); // '2回目の実行' → {value: 2, done: false}
+gen.next(); // '3回目の実行' → {value: 3, done: false}
+gen.next(); // {value: undefined, done: true}
+```

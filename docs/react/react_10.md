@@ -45,3 +45,38 @@ export async function createReviewAction(data: FormData) {
   <button type="submit">Submit</button>
 </form>;
 ```
+
+## バッチング
+
+- 複数の状態更新を一つの再レンダリングにまとめて処理する最適化技術
+
+```jsx
+function handleClick() {
+  setCount((c) => c + 1); // 状態更新1
+  setFlag((f) => !f); // 状態更新2
+  setName("React"); // 状態更新3
+  // 🎯 3つの更新 → 1回だけ再レンダリング！
+}
+
+// React 17 - setTimeoutでバッチングなし
+setTimeout(() => {
+  setCount(1); // レンダリング1回目
+  setFlag(true); // レンダリング2回目（合計2回！）
+}, 1000);
+
+// React 18 - 自動バッチング適用
+setTimeout(() => {
+  setCount(1); //
+  setFlag(true); // 一度に処理（合計1回！）
+}, 1000);
+
+// バッチング無効化（必要な場合）
+import { flushSync } from "react-dom";
+
+flushSync(() => {
+  setCount(1); // すぐにレンダリング
+});
+flushSync(() => {
+  setFlag(true); // 別途すぐにレンダリング
+});
+```
