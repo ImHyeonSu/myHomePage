@@ -15,6 +15,7 @@ sidebar_position: 4
 - 全駅 Context
 
   - JavaScript が初めて実行されるときに生成される Context、プログラムが終了されるときまで続ける
+  - SingleThreadのため、全駅Contextは一個のみ存在する
   - ブラウザーは Window、Node.js からは Global が Context になる
 
 - 関数実行 Context
