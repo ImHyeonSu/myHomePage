@@ -6,6 +6,44 @@ sidebar_position: 3
 
 **Last updated:** _2025-07-14_
 
+### interface(設計書)
+
+- いろんな structure を同じタイプで使えるようにできる
+
+```golang
+type IFeeSummaryDb interface {
+    GetFeeSummaries(...) (...)
+}
+
+// 全てIFeeSummaryDbで使える
+&FeeSummaryDb{}
+&MockFeeSummaryDb{}
+&PostgresFeeSummaryDb{}
+```
+
+### structure(実際のコード)
+
+- メソッドを絞る箱
+
+```golang
+// ❌ 関数はinterface作成不可
+func GetFeeSummaries(...) {...}
+
+// ✅ structure interface作成可能
+type FeeSummaryDb struct {}
+func (d *FeeSummaryDb) GetFeeSummaries(...) {...}
+```
+
+### constructor(Object 生成)
+
+- 構造体を作ってインターフェースで返す
+
+```golang
+func NewFeeSummary() IFeeSummaryDb {
+	return &FeeSummaryDb{}
+}
+```
+
 ## pattern
 
 1. インターフェース方式
